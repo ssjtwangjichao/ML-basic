@@ -57,7 +57,6 @@ def kMeans(dataSet, k, distMeans =distEclud, createCent = randCent):
              ptsInClust = dataSet[nonzero(clusterAssment[:,0].A == cent)[0]]   # 去第一列等于cent的所有列
              centroids[cent,:] = mean(ptsInClust, axis = 0)  # 算出这些数据的中心点
      return centroids, clusterAssment
-# --------------------测试----------------------------------------------------
 
 
 if __name__ == '__main__':
