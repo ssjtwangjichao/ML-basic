@@ -1,9 +1,9 @@
 # coding=utf-8
+#算法解析： K-mean算法聚类算法，将数据集根据距离分为K个数据类
 
 from numpy import *
 
 #公共变量定义
-
 
 # 加载数据
 def loadDataSet(fileName):
