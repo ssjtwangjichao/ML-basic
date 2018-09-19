@@ -1,4 +1,15 @@
 # -*- coding: utf-8 -*-
+# 算法解析： SVM算法预测，分类
+'''
+算法步骤：
+1、计算已知类别数据集中的点与当前点之间的距离；
+2、按照距离递增次序排序；
+3、选取与当前点距离最小的k个点；
+4、确定k个点所在类别的出现频率；
+（K用于选择最近邻的数目，K的选择非常敏感。K值越小意味着模型复杂度越高，从而容易产生过拟合；K值越大则 意味着整体的模型变得简单，学习的近似误差会增大，在实际的应用中，一般采用一个比较小的K值，用交叉验证的 方法，选取一个最优的K值。）
+5、返回前k个点出现频率最高的类别作为当前点的预测分类；
+'''
+
 from sklearn import datasets
 from sklearn import svm
 import random
@@ -60,7 +71,6 @@ def tfvectorize(train_words,test_words):
     return train_data,test_data
 '''
 
-
 # 得到准确率和召回率
 def evaluate(actual, pred):
     m_precision = metrics.precision_score(actual, pred, average='macro')
@@ -77,7 +87,6 @@ def train_clf(train_data, train_tags):
     clf.fit(train_data, numpy.asarray(train_tags))
     return clf
 
-
 def covectorize(train_words, test_words):
     v = CountVectorizer(tokenizer=comma_tokenizer, binary=False, decode_error='ignore', stop_words='english')
     train_data = v.fit_transform(train_words)
@@ -85,12 +94,10 @@ def covectorize(train_words, test_words):
 
     return train_data, test_data
 
-
 if __name__ == '__main__':
     # 读取文本文件
     print('--读取文本--')
     linelist = inputdata('file.txt')
-    print(linelist)
     print('------------')
 
     # 划分成两个list
