@@ -35,7 +35,6 @@ def test_logisticRegression(X_train,X_test,y_train,y_test):
     print('Score: %.2f' % cls.score(X_test, y_test))
 
 #执行主函数
-
 if __name__ == '__main__':
     X_train,X_test,y_train,y_test=load_data()
     test_logisticRegression(X_train,X_test,y_train,y_test)
