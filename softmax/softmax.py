@@ -1,5 +1,9 @@
 # coding=utf-8
-#算法解析： tensorflow实现线性回归
+#算法解析： tensorflow 基于softmax函数和MNIST数据集实现手写字体识别
+
+'''
+
+'''
 
 
 # 引入python模块
